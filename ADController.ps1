@@ -1,6 +1,7 @@
-$domainName = $args[0]
-
-$password = $args[1]
+param (
+    [string]$domainName,
+    [string]$password,
+)
 
 Set-DnsClient `
     -InterfaceAlias "Ethernet*" `
