@@ -3,7 +3,7 @@
 ## Enter safe password e.g. Passw0rd 
  
 param (
-    [string]$password,
+    [string]$password
 )
 
 $regkey = test-path hklm:\software\FTCAD 
