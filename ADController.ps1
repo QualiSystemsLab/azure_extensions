@@ -4,19 +4,10 @@ param (
 )
 
 
-Set-DnsClient `
-    -InterfaceAlias "Ethernet*" `
-    -ConnectionSpecificSuffix $domainName
+Set-DnsClient -InterfaceAlias "Ethernet*" -ConnectionSpecificSuffix $domainName
     
-Install-WindowsFeature `
-    -Name AD-Domain-Services `
-    -IncludeManagementTools
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
-$securePassword = ConvertTo-SecureString $password `
-    -AsPlainText `
-    -Force
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
 
-Install-ADDSForest `
-    -DomainName $domainName `
-    -SafeModeAdministratorPassword $securePassword `
-    -Force
+Install-ADDSForest -DomainName $domainName -SafeModeAdministratorPassword $securePassword -Force
