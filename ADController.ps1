@@ -3,8 +3,8 @@ param (
     [string]$password,
 )
 
-
 Set-DnsClient -InterfaceAlias "Ethernet*" -ConnectionSpecificSuffix $domainName
+
     
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
